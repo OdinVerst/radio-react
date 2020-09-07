@@ -2,7 +2,7 @@
   "settings": {
     "contacts": [
       {
-        "title": "Офис Zhara FM 11",
+        "title": "Офис Zhara FM 212",
         "description": "Красногорск, Международная ул., 12\n+7 (495) 727 24 30\nOFFICE@ZHARAFM.RU"
       },
       {
@@ -27,10 +27,10 @@
       "facebookUrl": "http://facebook.com"
     },
     "news": {
-      "rssUrl": ""
+      "rssUrl": "sdsdasd2123"
     },
     "radio": {
-      "unisoundId": "test"
+      "unisoundId": "test 3213"
     }
   }
 }

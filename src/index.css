@@ -17,7 +17,9 @@ body {
   text-align: center;
 }
 
-.btn-wrap {
+.btn-wrap,
+.row-flex,
+.tabs {
   display: flex;
   justify-content: center;
 }
