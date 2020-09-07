@@ -24,3 +24,13 @@ body {
   justify-content: center;
 }
 
+.filled-group {
+  position: relative;
+}
+
+.remove-btn {
+  position: absolute !important;
+  right: 5px;
+  top: 0;
+}
+

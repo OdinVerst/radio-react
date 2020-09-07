@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Navbar = ({searchLog}) => {
-
+const Navbar = () => {
   return (
     <nav className="blue" style={{ marginBottom: '1em' }}>
       <div className="nav-wrapper">

@@ -7,32 +7,43 @@ import { URL_POST, ONE_PARAM } from "../../const";
 import { Tabs } from "../layout/Tabs";
 
 export const Table = ({ data }) => {
-  const keyNameTable = Object.keys(data);
-  const wrapData = data;
-  const [currentTab, setCurrentTab] = useState("all");
+    const [currentTab, setCurrentTab] = useState("all");
+    const [dataState, setDataState] = useState(data);
+    const wrapData = dataState;
+
+
+    const sendData = (data) => {
+        fetch(URL_POST, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((res) => res.json())
+            .then((newData) => {
+              M.toast({ html: "Успешно сохранено!" });
+              setDataState(newData)
+              
+            });
+    }
 
   const submitHandler = (evt) => {
     evt.preventDefault();
-    fetch(URL_POST, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        M.toast({ html: "Успешно сохранено!" });
-        console.log(data);
-      });
+    sendData(dataState);
   };
 
-  const changeHandler = (newValue, title, index, group) => {
-    if (index === ONE_PARAM) {
+  const changeHandler = (newValue, title, index, group, isDel) => {
+      console.log(index);
+    if (isDel) {
+        wrapData[group].splice(index, 1);
+        sendData(wrapData)
+    }else if (index === ONE_PARAM) {
       wrapData[group][title] = newValue;
     } else {
       wrapData[group][index][title] = newValue;
     }
+
   };
 
   const changeTab = (newValue) => {
@@ -41,24 +52,23 @@ export const Table = ({ data }) => {
 
   return (
     <Fragment>
-      <Tabs names={keyNameTable} changeTab={changeTab} />
+      <Tabs names={Object.keys(dataState)} changeTab={changeTab} />
       <form onSubmit={submitHandler}>
         <div className={currentTab === "all" ? "row": "row row-flex"}>
           {currentTab === "all" ? (
-            keyNameTable.map((item, key) => {
+            Object.keys(dataState).map((item, key) => {
               return (
-                <Fragment key={key}>
                   <TableGroup
-                    fileds={data[item]}
+                    key={`${key}${Math.random()}`}
+                    fileds={dataState[item]}
                     title={item}
                     changeHandler={changeHandler}
                   />
-                </Fragment>
               );
             })
           ) : (
             <TableGroup
-              fileds={data[currentTab]}
+              fileds={dataState[currentTab]}
               title={currentTab}
               isFilter
               changeHandler={changeHandler}
