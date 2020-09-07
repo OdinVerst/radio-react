@@ -1,0 +1,36 @@
+{
+  "settings": {
+    "contacts": [
+      {
+        "title": "Офис Zhara FM 11",
+        "description": "Красногорск, Международная ул., 12\n+7 (495) 727 24 30\nOFFICE@ZHARAFM.RU"
+      },
+      {
+        "title": "Общие вопросы",
+        "description": "HELLO@ZHARAFM.RU"
+      },
+      {
+        "title": "Региональное вещание",
+        "description": "Хочешь транслировать ЖАРА FM в своем городе?\nREGIONS@ZHARAFM.RU"
+      },
+      {
+        "title": "Рекламная служба (Москва)",
+        "description": "+7 (495) 727 24 74\nREKLAMA@ZHARAFM.RU"
+      }
+    ],
+    "settings": {
+      "reportProblemUrl": "mailto:APP@ZHARAFM.RU",
+      "messageToStudioUrl": "mailto:APP@ZHARAFM.RU",
+      "instagramUrl": "http://instagram.com",
+      "youtubeUrl": "http://youtube.com",
+      "vkUrl": "http://vk.com",
+      "facebookUrl": "http://facebook.com"
+    },
+    "news": {
+      "rssUrl": ""
+    },
+    "radio": {
+      "unisoundId": "test"
+    }
+  }
+}

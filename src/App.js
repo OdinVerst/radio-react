@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "materialize-css/dist/css/materialize.min.css";
+import Preloader from "./components/layout/Preloader";
+import Navbar from "./components/layout/Navbar";
+import { Table } from "./components/table/Table";
+import { URL_GET } from "./const";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const [formData, setFormData] = useState({});
+  useEffect(() => {
+    fetch(URL_GET)
+      .then((res) => res.json())
+      .then((data) => {
+        setFormData(data);
+        setLoading(false);
+      });
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <div className="container">
+        {loading ? <Preloader /> : <Table data={formData} />}
+      </div>
     </div>
   );
 }
