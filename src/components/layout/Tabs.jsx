@@ -8,7 +8,7 @@ export const Tabs = ({ names, changeTab }) => {
     const init = M.Tabs.init(tabsWrapper.current)
      setTabsEvent(init);
   }, []);
-  const allNames = ["all", ...names];
+  const allNames = [...names, 'all'];
   const activeTab = 0;
 
   const clickHandler = () => {

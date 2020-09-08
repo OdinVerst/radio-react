@@ -7,8 +7,8 @@ import { URL_POST, ONE_PARAM, DELETE, ADD } from "../../const";
 import { Tabs } from "../layout/Tabs";
 
 export const Table = ({ data }) => {
-    const [currentTab, setCurrentTab] = useState("all");
-    const [dataState, setDataState] = useState(data);
+  const [dataState, setDataState] = useState(data);
+  const [currentTab, setCurrentTab] = useState(Object.keys(dataState)[0]);
     const wrapData = dataState;
 
 
