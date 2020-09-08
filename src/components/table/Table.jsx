@@ -24,7 +24,6 @@ export const Table = ({ data }) => {
             .then((newData) => {
               M.toast({ html: text });
               setDataState(newData)
-              
             });
     }
 
@@ -50,7 +49,6 @@ export const Table = ({ data }) => {
             wrapData[group][index][title] = newValue; 
             return
       }
-
   };
 
   const changeTab = (newValue) => {
