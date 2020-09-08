@@ -13,6 +13,7 @@ export const TableGroup = ({ fileds, title, changeHandler, isFilter }) => {
       setIsArray(true);
     } else {
       tempArray.push(fileds);
+      setIsArray(false);
     }
     setFiledsNomallize(tempArray);
   }, [fileds]);

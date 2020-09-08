@@ -2,7 +2,7 @@
   "settings": {
     "contacts": [
       {
-        "title": "Офис Zhara FM 212",
+        "title": "Офис Zhara FM",
         "description": "Красногорск, Международная ул., 12\n+7 (495) 727 24 30\nOFFICE@ZHARAFM.RU"
       },
       {
@@ -16,14 +16,6 @@
       {
         "title": "Рекламная служба (Москва)",
         "description": "+7 (495) 727 24 74\nREKLAMA@ZHARAFM.RU"
-      },
-      {
-        "title": "sdssadda",
-        "description": "asddasdaddsa"
-      },
-      {
-        "title": "asdasda",
-        "description": "sdsad"
       }
     ],
     "settings": {
