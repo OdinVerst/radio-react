@@ -1,7 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export const ButtonAdd = ({handler}) => {
-    return (
-        <a onClick={handler} className="waves-effect waves-light btn">Добавить поле</a>
-    )
-}
+export const ButtonAdd = ({ handler }) => {
+  return (
+    <button onClick={handler} className="waves-effect waves-light btn">
+      Добавить поле
+    </button>
+  );
+};
