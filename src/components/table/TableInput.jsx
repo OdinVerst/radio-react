@@ -12,7 +12,7 @@ export const TableInput = ({title, value, id, changeHandler, index, groupName}) 
 
     const setValue = (newValue) => {
         setValueInput(newValue);
-        changeHandler(newValue, title, index, groupName);
+        changeHandler(newValue, title, index, groupName, index);
     }
     return (
         <div className="input-field">

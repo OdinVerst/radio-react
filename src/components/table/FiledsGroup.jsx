@@ -1,11 +1,11 @@
 import React from 'react'
 import { TableInput } from './TableInput'
-import { ONE_PARAM } from '../../const'
+import { ONE_PARAM, DELETE } from '../../const'
 import { ButtonDelete } from '../layout/ButtonDelete'
 
 export const FiledsGroup = ({list, currentItem, changeHandler, isArray, title, indexItem}) => {
     const deleteHandler = () => {
-        changeHandler(null, null, indexItem, title, true);
+        changeHandler(null, null, indexItem, title, DELETE);
     }
 
     return (

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FiledsGroup } from "./FiledsGroup";
+import { ButtonAdd } from "../layout/ButtonAdd";
+import { ADD } from "../../const";
 
 export const TableGroup = ({ fileds, title, changeHandler, isFilter }) => {
   const [filedsNomallize, setFiledsNomallize] = useState([]);
@@ -14,6 +16,14 @@ export const TableGroup = ({ fileds, title, changeHandler, isFilter }) => {
     }
     setFiledsNomallize(tempArray);
   }, [fileds]);
+
+  const addFiledHandler = () => {
+    const template = {
+        title: '',
+        description: ''
+    }
+    changeHandler(template, null, null, title, ADD);
+  }
 
   return (
     <div className={isFilter ? "col s12 m12 l10" : "col s12 m12 l6"}>
@@ -34,6 +44,7 @@ export const TableGroup = ({ fileds, title, changeHandler, isFilter }) => {
               />
             );
           })}
+          {isArray ? <ButtonAdd handler={addFiledHandler} />: null}
         </div>
       </div>
     </div>

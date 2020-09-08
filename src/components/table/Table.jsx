@@ -3,7 +3,7 @@ import M from "materialize-css/dist/js/materialize.min.js";
 
 import { TableGroup } from "./TableGroup";
 import { Button } from "../layout/Button";
-import { URL_POST, ONE_PARAM } from "../../const";
+import { URL_POST, ONE_PARAM, DELETE, ADD } from "../../const";
 import { Tabs } from "../layout/Tabs";
 
 export const Table = ({ data }) => {
@@ -12,7 +12,7 @@ export const Table = ({ data }) => {
     const wrapData = dataState;
 
 
-    const sendData = (data) => {
+    const sendData = (data, text = 'Успешно сохранено!') => {
         fetch(URL_POST, {
             method: "POST",
             headers: {
@@ -22,7 +22,7 @@ export const Table = ({ data }) => {
           })
             .then((res) => res.json())
             .then((newData) => {
-              M.toast({ html: "Успешно сохранено!" });
+              M.toast({ html: text });
               setDataState(newData)
               
             });
@@ -33,16 +33,23 @@ export const Table = ({ data }) => {
     sendData(dataState);
   };
 
-  const changeHandler = (newValue, title, index, group, isDel) => {
-      console.log(index);
-    if (isDel) {
-        wrapData[group].splice(index, 1);
-        sendData(wrapData)
-    }else if (index === ONE_PARAM) {
-      wrapData[group][title] = newValue;
-    } else {
-      wrapData[group][index][title] = newValue;
-    }
+  const changeHandler = (newValue, title, index, group, type) => {
+      switch(type) {
+          case DELETE:
+            wrapData[group].splice(index, 1);
+            sendData(wrapData, 'Успешно удалено!');
+            return;
+        case ADD:
+            wrapData[group].push(newValue);
+            sendData(wrapData, 'Успешно добавлено!');
+            return;
+        case ONE_PARAM:
+            wrapData[group][title] = newValue;
+            return
+        default:
+            wrapData[group][index][title] = newValue; 
+            return
+      }
 
   };
 
