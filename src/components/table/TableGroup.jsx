@@ -42,6 +42,7 @@ export const TableGroup = ({ fileds, title, changeHandler, isFilter }) => {
                 title={title}
                 isArray={isArray}
                 indexItem={index}
+                isLast={filedsNomallize.length === 1}
               />
             );
           })}

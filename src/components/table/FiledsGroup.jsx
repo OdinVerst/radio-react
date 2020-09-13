@@ -3,14 +3,14 @@ import { TableInput } from './TableInput'
 import { ONE_PARAM, DELETE } from '../../const'
 import { ButtonDelete } from '../layout/ButtonDelete'
 
-export const FiledsGroup = ({list, currentItem, changeHandler, isArray, title, indexItem}) => {
+export const FiledsGroup = ({list, currentItem, changeHandler, isArray, title, indexItem, isLast = false}) => {
     const deleteHandler = () => {
         changeHandler(null, null, indexItem, title, DELETE);
     }
 
     return (
         <div className="filled-group">
-            {isArray ? <ButtonDelete handler={deleteHandler}/>: null}
+            {isArray && !isLast ? <ButtonDelete handler={deleteHandler}/>: null}
             {list.map((flied, index) => (
               <TableInput
                 key={`${index}${Math.random()}`}
