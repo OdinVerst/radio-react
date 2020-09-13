@@ -5,6 +5,8 @@ export const TableInput = ({title, value, id, changeHandler, index, groupName}) 
     const textArea = useRef();
     const [valueInput, setValueInput] = useState(value);
 
+    const textError = 'Обязательно для заполнения';
+
     useEffect(()=> {
         M.updateTextFields();
         M.textareaAutoResize(textArea.current)
@@ -22,11 +24,13 @@ export const TableInput = ({title, value, id, changeHandler, index, groupName}) 
                 ref={textArea}
                 type="text"
                 name="message"
-                className="materialize-textarea"
+                className="materialize-textarea validate"
                 data-length="120"
                 value={valueInput}
                 onChange={e => setValue(e.target.value)}
+                required
             ></textarea>
+            <span className="helper-text" data-error={textError} data-success=""></span>
         </div>
     )
 }
