@@ -3,7 +3,7 @@ import M from "materialize-css/dist/js/materialize.min.js";
 
 import { TableGroup } from "./TableGroup";
 import { Button } from "../layout/Button";
-import { URL_POST, ONE_PARAM, DELETE, ADD } from "../../const";
+import { URL_POST, ONE_PARAM, DELETE, ADD, URL_GET } from "../../const";
 import { Tabs } from "../layout/Tabs";
 import { PopupNewItem } from "./PopupNewItem";
 
@@ -24,7 +24,12 @@ export const Table = ({ data }) => {
       .then((res) => res.text())
       .then((newData) => {
         M.toast({ html: text });
-        //setDataState(newData);
+
+        fetch(URL_GET)
+        .then((res) => res.json())
+        .then((data) => {
+          setDataState(data);
+        });
       });
   };
 
