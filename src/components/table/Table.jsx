@@ -21,10 +21,10 @@ export const Table = ({ data }) => {
       },
       body: JSON.stringify(data),
     })
-      .then((res) => res.json())
+      .then((res) => res.text())
       .then((newData) => {
         M.toast({ html: text });
-        setDataState(newData);
+        //setDataState(newData);
       });
   };
 
